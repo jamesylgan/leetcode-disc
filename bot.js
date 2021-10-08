@@ -117,7 +117,6 @@ function problemType(data, msg, diff = '', number = 'unused') {
 			reason: 'Thread to discuss problem #' + aProblem.id,
 		})
 			.then(threadChannel => {
-				console.log(embed);
 				threadChannel.send({
 					embeds: [embed],
 				});
@@ -174,7 +173,10 @@ client.on('messageCreate', (msg) => {
 			'\n\n\t!problem number # - gives you a random paid/locked problem of any difficulty.' +
 			'\n\nAdding difficulty modifiers:\n\n\t!problem <free | paid> <easy | medium | hard> - lets you pick a random free or paid problem of the chosen difficulty.```',
 		)
-			.then(() => console.log(`Replied to message "${msg.content}"`))
+			.then(() => {
+				console.log(`Replied to message "${msg.content}"`);
+				msg.delete();
+			})
 			.catch(console.error);
 	}
 	else if (command === 'free') {
