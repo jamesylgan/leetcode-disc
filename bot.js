@@ -196,7 +196,9 @@ client.on('messageCreate', (msg) => {
 	} else if (command === 'deletethreads' && msg.author.id === process.env.DISCORD_USER_ID) {
 		let numThreads = msg.channel.threads.cache.size;
 		for (const channel of msg.channel.threads.cache) {
-			channel[1].delete();
+			if (!channel.archived) {
+				channel[1].delete();
+			}
 		}
 		msg.delete();
 		console.log('deleted ' + numThreads + ' threads');
