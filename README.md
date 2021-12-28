@@ -1,4 +1,4 @@
-# This is a fork by GitHub user jamesylgan for usage on a personal channel
+# This is a fork by GitHub user jamesylgan for usage on a personal channel to help folks get better at leetcode
 
 --------------------------------------------
 
